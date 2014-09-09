@@ -4,11 +4,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    respond_with @events, each_serializer: CampaignSerializer 
+    respond_with @events, each_serializer: EventSerializer 
   end
 
   def show
-    @event = Campaign.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
