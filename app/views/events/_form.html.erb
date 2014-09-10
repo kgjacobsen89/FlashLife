@@ -12,12 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
+    <%= f.label "Event Date" %><br>
     <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label "Description" %><br>
+    <%= f.text_field :description %>
+  </div> 
+  <div class="field">
+    <%= f.label "Location" %><br>
+    <%= f.text_field :location %>
+  <div class="field">
+    <%= f.check_box "Make Gallery Public", :is_public, checked = true %><br>
   </div>
   <div class="actions">
     <%= f.submit %>
