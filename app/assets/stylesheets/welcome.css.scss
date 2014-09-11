@@ -35,8 +35,8 @@ h6 {
     font-weight: 700;
 }
 
-hr.star-light,
-hr.star-primary {
+hr.camera-light,
+hr.camera-primary {
     margin: 25px auto 30px;
     padding: 0;
     max-width: 250px;
@@ -45,9 +45,9 @@ hr.star-primary {
     text-align: center;
 }
 
-hr.star-light:after,
-hr.star-primary:after {
-    content: "\f005";
+hr.camera-light:after,
+hr.camera-primary:after {
+    content: "\f030";
     display: inline-block;
     position: relative;
     top: -.8em;
@@ -56,20 +56,20 @@ hr.star-primary:after {
     font-size: 2em;
 }
 
-hr.star-light {
+hr.camera-light {
     border-color: #fff;
 }
 
-hr.star-light:after {
+hr.camera-light:after {
     color: #fff;
     background-color: #18bc9c;
 }
 
-hr.star-primary {
+hr.camera-primary {
     border-color: #2c3e50;
 }
 
-hr.star-primary:after {
+hr.camera-primary:after {
     color: #2c3e50;
     background-color: #fff;
 }
@@ -102,7 +102,7 @@ header .intro-text .name {
     font-weight: 700;
 }
 
-header .intro-text .skills {
+header .intro-text .slogan {
     font-size: 1.25em;
     font-weight: 300;
 }
@@ -117,7 +117,7 @@ header .intro-text .skills {
         font-size: 4.75em;
     }
 
-    header .intro-text .skills {
+    header .intro-text .slogan {
         font-size: 1.75em;
     }
 }
@@ -193,19 +193,19 @@ section.success {
     }
 }
 
-#portfolio .portfolio-item {
+#rates .rates-item {
     right: 0;
     margin: 0 0 15px;
 }
 
-#portfolio .portfolio-item .portfolio-link {
+#rates .rates-item .rates-link {
     display: block;
     position: relative;
     margin: 0 auto;
     max-width: 400px;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption {
+#rates .rates-item .rates-link .caption {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -216,11 +216,11 @@ section.success {
     transition: all ease .5s;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption:hover {
+#rates .rates-item .rates-link .caption:hover {
     opacity: 1;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content {
+#rates .rates-item .rates-link .caption .caption-content {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -231,21 +231,21 @@ section.success {
     color: #fff;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content i {
+#rates .rates-item .rates-link .caption .caption-content i {
     margin-top: -12px;
 }
 
-#portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
-#portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
+#rates .rates-item .rates-link .caption .caption-content h3,
+#rates .rates-item .rates-link .caption .caption-content h4 {
     margin: 0;
 }
 
-#portfolio * {
+#rates * {
     z-index: 2;
 }
 
 @media(min-width:767px) {
-    #portfolio .portfolio-item {
+    #rates .rates-item {
         margin: 0 0 30px;
     }
 }
@@ -384,7 +384,7 @@ footer .footer-below {
     outline: 0;
 }
 
-.portfolio-modal .modal-content {
+.rates-modal .modal-content {
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -395,20 +395,20 @@ footer .footer-below {
     box-shadow: none;
 }
 
-.portfolio-modal .modal-content h2 {
+.rates-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
 }
 
-.portfolio-modal .modal-content img {
+.rates-modal .modal-content img {
     margin-bottom: 30px;
 }
 
-.portfolio-modal .modal-content .item-details {
+.rates-modal .modal-content .item-details {
     margin: 30px 0;
 }
 
-.portfolio-modal .close-modal {
+.rates-modal .close-modal {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -418,11 +418,11 @@ footer .footer-below {
     cursor: pointer;
 }
 
-.portfolio-modal .close-modal:hover {
+.rates-modal .close-modal:hover {
     opacity: .3;
 }
 
-.portfolio-modal .close-modal .lr {
+.rates-modal .close-modal .lr {
     z-index: 1051;
     width: 1px;
     height: 75px;
@@ -433,7 +433,7 @@ footer .footer-below {
     transform: rotate(45deg);
 }
 
-.portfolio-modal .close-modal .lr .rl {
+.rates-modal .close-modal .lr .rl {
     z-index: 1052;
     width: 1px;
     height: 75px;
