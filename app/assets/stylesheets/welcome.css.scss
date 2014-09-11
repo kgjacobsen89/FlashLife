@@ -31,12 +31,12 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 }
 
-hr.camera-light,
-hr.camera-primary {
+.camera-light,
+.camera-primary {
     margin: 25px auto 30px;
     padding: 0;
     max-width: 250px;
@@ -45,8 +45,8 @@ hr.camera-primary {
     text-align: center;
 }
 
-hr.camera-light:after,
-hr.camera-primary:after {
+.camera-light:after,
+.camera-primary:after {
     content: "\f030";
     display: inline-block;
     position: relative;
@@ -56,20 +56,20 @@ hr.camera-primary:after {
     font-size: 2em;
 }
 
-hr.camera-light {
+.camera-light {
     border-color: #fff;
 }
 
-hr.camera-light:after {
+.camera-light:after {
     color: #fff;
     background-color: #18bc9c;
 }
 
-hr.camera-primary {
+.camera-primary {
     border-color: #2c3e50;
 }
 
-hr.camera-primary:after {
+.camera-primary:after {
     color: #2c3e50;
     background-color: #fff;
 }
@@ -97,7 +97,7 @@ header img {
 header .intro-text .name {
     display: block;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-size: 2em;
     font-weight: 700;
 }
@@ -105,6 +105,7 @@ header .intro-text .name {
 header .intro-text .slogan {
     font-size: 1.25em;
     font-weight: 300;
+    /*font-family: 'Quicksand', sans-serif;*/
 }
 
 @media(min-width:768px) {
@@ -148,7 +149,7 @@ header .intro-text .slogan {
 
 .navbar {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: 'Quicksand', sans-serif;
     font-weight: 700;
 }
 
@@ -176,9 +177,10 @@ section {
 section h2 {
     margin: 0;
     font-size: 3em;
+    font-family: 'Quicksand', sans-serif;
 }
 
-section.success {
+section.highlight {
     color: #fff;
     background: #18bc9c;
 }
@@ -330,6 +332,7 @@ footer {
 
 footer h3 {
     margin-bottom: 30px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 footer .footer-above {
@@ -398,6 +401,7 @@ footer .footer-below {
 .rates-modal .modal-content h2 {
     margin: 0;
     font-size: 3em;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .rates-modal .modal-content img {
