@@ -26,9 +26,11 @@
   <div class="field">
     <%= f.label "Location" %><br>
     <%= f.text_field :location %>
+  </div>
   <div class="field">
     <%= f.check_box "Make Gallery Public", :is_public, checked = true %><br>
   </div>
+   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>
