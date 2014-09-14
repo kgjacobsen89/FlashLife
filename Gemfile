@@ -9,6 +9,14 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
+gem 'bootstrap-sass', '~> 3.2.0'
+
+gem 'bootstrap-glyphicons'
+
+# Use Yelp APi
+gem 'yelp', require: 'yelp'
+
+# Use to upload multiple photos
 gem 'rmagick', '2.13.2'
 
 gem "paperclip", "~> 4.2"
@@ -26,10 +34,6 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
-gem 'bootstrap-sass', '~> 3.2.0'
-
-gem 'bootstrap-glyphicons'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
