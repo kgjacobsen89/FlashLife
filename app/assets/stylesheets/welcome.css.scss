@@ -11,9 +11,18 @@ body {
     width: 100%;
     height: 100%;
 }
+h1, 
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: 'Roboto', sans-serif;
+}
 
 body {
-    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: #060606;
 }
 
 .text-vertical-center {
@@ -114,7 +123,7 @@ hr.small {
 
 .sidebar-nav > .sidebar-brand {
     height: 55px;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 55px;
 }
 
@@ -163,14 +172,14 @@ hr.small {
     -o-background-size: cover;
 }
 
-.photoboothnormal {
+/*.photoboothnormal {
     background-image: url("Photobooth.png");
     width: 373px;
     height: 391px;
     background-repeat: no-repeat;
     margin: 0 auto;
     position: relative;
-}
+}*/
 
 .photoboothlogo{
     background-image: url("FlashLifePhotobooth_logo_black.png");
@@ -191,11 +200,30 @@ hr.small {
 
 .packages {
     padding: 50px 0;
+    background-color: #ACC7BF;
 }
 
 .package-item {
     margin-bottom: 30px;
+    color: #5E5F67;
 }
+
+.fa-camera{
+    color: #B7D967;
+}
+
+.fa-video-camera{
+    color: #C37070;
+}
+
+.fa-star{
+    color: #EAE160;
+}
+
+.fa-microphone {
+    color: #BF7AA3;
+}
+
 
 /* Callout */
 
@@ -203,8 +231,7 @@ hr.small {
     display: table;
     width: 100%;
     height: 400px;
-    color: #fff;
-    background: url(../img/callout.jpg) no-repeat center center scroll;
+    background-color: #5E5F67;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -233,6 +260,7 @@ hr.small {
 
 .call-to-action {
     padding: 50px 0;
+    background-color: #EAE160;
 }
 
 .call-to-action .btn {

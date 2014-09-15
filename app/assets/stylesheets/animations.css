@@ -1,0 +1,39 @@
+/* Annimations */
+
+.photoboothnormal {
+    width: 373px;
+    height: 391px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+    -webkit-animation: boothcolor 20s;
+    animation: boothcolor 20s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count:infinite;
+}
+@keyframes boothcolor {
+	0% {background-image: url("Photobooth.png");}
+	10% {background-image: url("Photobooth1.png");}
+	20% {background-image: url("Photobooth2.png");}
+	30% {background-image: url("Photobooth3.png");}
+	40% {background-image: url("Photobooth4.png");}
+	50% {background-image: url("Photobooth5.png");}
+	60% {background-image: url("Photobooth6.png");}
+	70% {background-image: url("Photobooth7.png");}
+	80% {background-image: url("Photobooth8.png");}
+	90% {background-image: url("Photobooth9.png");}
+	100% {background-image: url("Photobooth10.png");}
+}
+@-webkit-keyframes boothcolor {
+	0% {background-image: url("Photobooth.png");}
+	10% {background-image: url("Photobooth1.png");}
+	20% {background-image: url("Photobooth2.png");}
+	30% {background-image: url("Photobooth3.png");}
+	40% {background-image: url("Photobooth4.png");}
+	50% {background-image: url("Photobooth5.png");}
+	60% {background-image: url("Photobooth6.png");}
+	70% {background-image: url("Photobooth7.png");}
+	80% {background-image: url("Photobooth8.png");}
+	90% {background-image: url("Photobooth9.png");}
+	100% {background-image: url("Photobooth10.png");}
+}
