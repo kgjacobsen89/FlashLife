@@ -11,5 +11,6 @@
  *= require_self
  *= require_tree .
  *= require jquery.fileupload-ui
- *= require bootstrap
  */
+@import 'bootstrap';
+@import 'bootstrap/glyphicons';
