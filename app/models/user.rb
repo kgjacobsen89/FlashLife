@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :events, :dependent => :destroy
-	# accepts_nested_attributes_for :events, :allow_destroy
+	include ActiveModel::SecurePassword
+	has_many :events, class_name: "Event", foreign_key: :user_id, inverse_of: :user
+	has_secure_password
 end

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			redirect_to user_path
+			redirect_to user_path(@user.id)
 		else
 			render 'new'
 		end
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@user.events = nil if @user.events.first.nil?
 	end
 
 	def edit
