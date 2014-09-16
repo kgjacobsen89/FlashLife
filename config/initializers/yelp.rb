@@ -7,4 +7,3 @@ Yelp.client.configure do |config|
   config.token_secret = "p4Z8kr-MwE0dKimxifDVgLo3bnw"
 end
 
-Yelp.client.business('flash-life-photo-booth-rental-los-angeles')

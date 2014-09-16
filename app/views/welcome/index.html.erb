@@ -25,7 +25,11 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top">FLASH LIFE PHOTO BOOTH</a>
+                <% if current_user %>
+                    <a href="user#show">Welcome %= current_user.first_name %></a>
+                <% else %>
+                    <a href="#top">FLASH LIFE PHOTO BOOTH</a>
+                <% end %>
             </li>
             <li>
                 <a href="#top">HOME</a>
@@ -42,6 +46,22 @@
             <li>
                 <a href="#contact">CONTACT</a>
             </li>
+            <% if current_user %>
+                <li>
+                    <%= link_to "SIGN OUT", sessions_path, method: :delete %>
+                </li>
+            <% else %>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">SIGN IN <strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                        <form method="post" action="login" accept-charset="UTF-8">
+                            <input style="margin-bottom: 15px; margin-left: -20px; width: 220px" type="text" placeholder="Email" id="email" name="email">
+                            <input style="margin-bottom: 15px; width: 220px" type="password" placeholder="Password" id="password" name="password">
+                            <input class="btn btn-default btn-block" type="submit" id="sign-in" value="Sign In">
+                        </form>
+                    </div>
+                </li>
+            <% end %>
         </ul>
     </nav>
 
@@ -50,6 +70,7 @@
         <div class="text-vertical-center">
             <div class="photoboothlogo"></div>
             <div class="photoboothnormal"></div>
+            <!-- <div class="wedding"></div> -->
             <h3>It's your party. We dance to your beat!</h3>
             <br>
             <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
@@ -67,7 +88,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-md-4">
-                    <p><strong>CREATING AN EXPERIENCE</strong> We understand the importance of your event, so we create an experience that you will remember. We offer a variety of different packages, each customizable to your lifestyle and taste. We always keep in mind that it's your party, and we dance to your beat! </p>
+                    <p><strong>CREATING AN EXPERIENCE</strong> We understand the importance of your event, so we create an experience that you will remember. We offer a variety of different packages, each customizable to fit your lifestyle and taste. We always keep in mind that it's your party, and we dance to your beat! </p>
                 </div>
                 <div class="col-md-4">
                     <p><strong>CUSTOMER SERVICE</strong> We go above and beyond to provide you with the highest level of customer service. Our trained staff oversees and guides your guests toward an absolutely fun-filled event from start to finish.</p>
@@ -99,7 +120,40 @@
                                     <strong>Flashy Booth</strong>
                                 </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                <!-- Button trigger modal -->
+                                <button class="btn btn-light" data-toggle="modal" data-target="#myModal1">Learn More</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel1">FLASHY BOOTH</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <ul class="list-inline item-details">
+                                            <li><strong>Photo Capability:</strong><br>
+                                            double prints with customized layout and banner<br>
+                                            CD gallery of all pictures<br>
+                                            prop box
+                                            </li><br>
+                                            <li><strong>Choice of:</strong><br>
+                                            4x6 postcard or 2x6 photo strips
+                                            </li><br>
+                                            <li><strong>Services:</strong><br>
+                                            4-hour unlimited use<br>
+                                            professional, on-site attendant<br>
+                                            delivery, set up and breakdown<br>
+                                            1 hour idle time
+                                            </li>
+                                        </ul>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -112,7 +166,40 @@
                                     <strong>Action Booth</strong>
                                 </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                 <!-- Button trigger modal -->
+                                <button class="btn btn-light" data-toggle="modal" data-target="#myModal2">Learn More</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel2">ACTION BOOTH</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <ul class="list-inline item-details">
+                                            <li><strong>Photo and Video Capability:</strong><br>
+                                            double prints with customized layout and banner<br>
+                                            CD gallery of all pictures<br>
+                                            prop box<br>
+                                            scrapbook station and supplies
+                                            </li><br>
+                                            <li><strong>Choice of:</strong><br>
+                                            4x6 postcard or 2x6 photo strips
+                                            </li><br>
+                                            <li><strong>Services:</strong><br>
+                                            4-hour unlimited use<br>
+                                            2 professional, on-site attendants<br>
+                                            delivery, set up and breakdown<br>
+                                            </li>
+                                        </ul>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -125,7 +212,41 @@
                                     <strong>Red Carpet Event</strong>
                                 </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                  <!-- Button trigger modal -->
+                                <button class="btn btn-light" data-toggle="modal" data-target="#myModal3">Learn More</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel3">RED CARPET EVENT</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <ul class="list-inline item-details">
+                                            <li><strong>Instant Print Capability:</strong><br>
+                                            step and repeat 8x8 backdrop<br>
+                                            Hollywood style red carpet<br>
+                                            professional lights<br>
+                                            double prints with customized layout and banner
+                                            CD gallery of all pictures
+                                            </li><br>
+                                            <li><strong>Choice of:</strong><br>
+                                            4x6 postcard or dual 2x3 photo strips
+                                            </li><br>
+                                            <li><strong>Services:</strong><br>
+                                            4-hour unlimited use<br>
+                                            professional, on-site attendant<br>
+                                            delivery, set up and breakdown
+                                            </li>
+                                        </ul>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -138,7 +259,42 @@
                                     <strong>A-List Red Carpet</strong>
                                 </h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                                <a href="#" class="btn btn-light">Learn More</a>
+                                  <!-- Button trigger modal -->
+                                <button class="btn btn-light" data-toggle="modal" data-target="#myModal4">Learn More</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <h4 class="modal-title" id="myModalLabel4">A-LIST RED CARPET</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <ul class="list-inline item-details">
+                                            <li><strong>Instant Print Capability:</strong><br>
+                                            customized step and repeat 8x8 backdrop<br>
+                                            Hollywood style red carpet<br>
+                                            video capabilities with microphone set up<br>
+                                            professional lights<br>
+                                            double prints with customized layout and banner
+                                            CD gallery of all pictures
+                                            </li><br>
+                                            <li><strong>Choice of:</strong><br>
+                                            4x6 postcard or dual 2x3 photo strips
+                                            </li><br>
+                                            <li><strong>Services:</strong><br>
+                                            4-hour unlimited use<br>
+                                            professional, on-site attendant<br>
+                                            delivery, set up and breakdown
+                                            </li>
+                                        </ul>
+                                    </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -166,28 +322,44 @@
                     <h2>FEATURED GALLERIES</h2>
                     <hr class="small">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="gallery-item">
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="gallery-item">
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="gallery-item">
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="gallery-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="gallery-item">
+                                <a href="#">
+                                    <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="gallery-item">
                                 <a href="#">
                                     <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
@@ -196,7 +368,7 @@
                         </div>
                     </div>
                     <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                    <!-- <a href="#" class="btn btn-dark">View More Items</a> -->
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -210,9 +382,59 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>The buttons below are impossible to resist.</h3>
-                    <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                    <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
+                    <%= image_tag(@business.rating_img_url_large)%><br>
+                    <!-- Button trigger modal -->
+                     <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalSignup">Book Us Now!</button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModalSignup" tabindex="-1" role="dialog" aria-labelledby="myModalLabelSignup" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            <h4 class="modal-title" id="myModalLabelSignup">SIGN UP</h4>
+                          </div>
+                          <div class="modal-body">
+                            <%= form_for(@user) do |f| %>
+                              <div class="field">
+                                <%= f.label "First Name" %><br>
+                                <%= f.text_field :first_name %>
+                              </div>
+                              <div class="field">
+                                <%= f.label "Last Name" %><br>
+                                <%= f.text_field :last_name %>
+                              </div>
+                              <div class="field">
+                                <%= f.label "Mailing Address" %>
+                                <%= f.text_field :address %>
+                              </div>
+                              <div class="field">
+                                <%= f.label "Phone Number" %>
+                                <%= f.text_field :phone_number %>
+                              </div>
+                              <div class="field">
+                                <%= f.label "Email" %><br>
+                                <%= f.text_field :email %>
+                              </div> 
+                              <div class="field">
+                                <%= f.label "Password" %><br>
+                                <%= f.password_field :password %>
+                                </div>
+                                <div class="field">
+                                <%= f.label "Confirm Password" %><br>
+                                <%= f.password_field :password_confirmation%>
+                                </div>
+                              <div class="actions">
+                                <%= f.submit @button_face %>
+                              </div>
+                            <% end %>
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
