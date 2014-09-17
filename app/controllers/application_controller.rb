@@ -11,6 +11,12 @@ private
 
   	helper_method :current_user
 
+  	# def user_new
+  	# 	@user = User.new
+  	# end
+
+  	# helper_method :user_new
+
   	# def event_new
   	# 	@event = Event.new 
   	# end

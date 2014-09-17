@@ -26,7 +26,7 @@
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
                 <% if current_user %>
-                    <a href="user#show">Welcome %= current_user.first_name %></a>
+                    <a href="user#show">Welcome <%= current_user.first_name.upcase %></a>
                 <% else %>
                     <a href="#top">FLASH LIFE PHOTO BOOTH</a>
                 <% end %>
@@ -48,17 +48,24 @@
             </li>
             <% if current_user %>
                 <li>
-                    <%= link_to "SIGN OUT", sessions_path, method: :delete %>
+                    <%= link_to "SIGN OUT", session_path, method: :delete %>
                 </li>
             <% else %>
                 <li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">SIGN IN <strong class="caret"></strong></a>
                     <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
-                        <form method="post" action="session#create" accept-charset="UTF-8">
+                        <%= form_for(@user, {url: session_path}) do |f| %>
+                            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+                            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+                            <%= f.submit "Sign In", class: "btn btn-dark" %>
+                        <% end %>
+
+
+                        <!-- <form method="post" action="session#create" accept-charset="UTF-8">
                             <input style="margin-bottom: 15px; margin-left: -20px; width: 220px" type="text" placeholder="Email" id="email" name="email">
                             <input style="margin-bottom: 15px; width: 220px" type="password" placeholder="Password" id="password" name="password">
                             <input class="btn btn-dark btn-block" type="submit" id="sign-in" value="Sign In">
-                        </form>
+                        </form> -->
                     </div>
                 </li>
             <% end %>
