@@ -14,7 +14,7 @@
   <div class="actions">
     <%= f.label :uploaded_file, t('.upload_new_file') %>
     <%= f.file_field :uploaded_file, multiple: true, name: 'upload[uploaded_file]' %>
-     <%= f.hidden_field :event_id, value: current_event.id %>
+    <%= f.hidden_field :event_id, value: current_event.id %>
     <%= f.submit %>
   </div>
 <% end %>

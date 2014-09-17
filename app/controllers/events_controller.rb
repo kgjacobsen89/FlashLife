@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     else
       flash[:notice] = "Unprocessable Entity"
       render "new"
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to user_path(@user.id)
+      redirect_to user_path(current_user.id)
     else
     flash[:notice] = "Unprocessable Entity"
     render 'edit'
@@ -39,12 +39,12 @@ class EventsController < ApplicationController
 
   def destroy
     Event.find(params[:id]).destroy
-    redirect_to user_path(@user.id)
+    redirect_to user_path(current_user.id)
   end
 
   private
 
     def event_params
-      params.require(:event).permit(:name, :date, :description, :is_public, :location, :user_id)
+      params.require(:event).permit(:name, :date, :is_public, :location, :package_type, :user_id)
     end
 end

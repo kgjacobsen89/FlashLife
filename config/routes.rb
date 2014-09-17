@@ -1,4 +1,5 @@
 FlashLife::Application.routes.draw do
+
   resources :users
   resources :events
   resources :uploads

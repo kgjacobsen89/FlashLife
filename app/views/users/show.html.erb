@@ -9,7 +9,7 @@
 		      <th>Name</th>
 		      <th>Date</th>
 		      <th>Location</th>
-		      <th>Description</th>
+		      <th>Package Type</th>
 		      <th></th>
 		      <th></th>
 		      <th></th>
@@ -21,7 +21,7 @@
 		        <td><%= event.name %></td>
 		        <td><%= event.date %></td>
 		        <td><%= event.location %></td>
-		        <td><%= event.description %></td>
+		        <td><%= event.package_type %></td>
 		        <td><%= link_to 'Show', event %></td>
 		        <td><%= link_to 'Edit', edit_event_path(event) %></td>
 		        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -51,12 +51,11 @@
 			  	</div>
 			  	<div class="field">
 			   		<%= f.label "Event Date" %><br>
-			    	<%= f.datetime_select :date %>
+			    	<%= f.date_select :date %>
 			  	</div>
 			  	<div class="field">
-			    	<%= f.label "Description" %><br>
-			    	<%= f.text_field :description %>
-			  	</div> 
+			  		<%= f.label "Package Type" %>
+			  		<%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
 			  	<div class="field">
 			    	<%= f.label "Location" %><br>
 			    	<%= f.text_field :location %>
