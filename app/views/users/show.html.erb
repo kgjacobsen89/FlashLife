@@ -1,16 +1,79 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<h2> Events </h2>
-<ul>
-	<% unless @user.events.nil? %>
-	<%= @user.events %>
-		<% @user.events.each do |e| %>
-		<li>
-			<strong><%= e.name %> </strong>
-			<%= link_to "Gallery", event_path(e) %>
-		</li>
-		<% end %>
+<h2> My Events </h2>
+<% if @user.events.count != 0 %>
+	<div class="table-responsive">
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Date</th>
+		      <th>Location</th>
+		      <th>Description</th>
+		      <th></th>
+		      <th></th>
+		      <th></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <% @user.events.each do |event| %>
+		      <tr>
+		        <td><%= event.name %></td>
+		        <td><%= event.date %></td>
+		        <td><%= event.location %></td>
+		        <td><%= event.description %></td>
+		        <td><%= link_to 'Show', event %></td>
+		        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+		        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      </tr>
+		    <% end %>
+			</tbody>
+		</table>
+		<br>
+	</div>
+<% else %>
+<% end %>
 
-	<% end %>
-</ul>
-
+<button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalEvent">New Event</button>
+<!-- Modal -->
+<div class="modal fade" id="myModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEvent" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabelEvent">NEW EVENT</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@event, { :class => "form-inline", :action => "create", :method => "post"}) do |f| %>
+        	<div class="field">
+			    	<%= f.label "Name" %><br>
+			    	<%= f.text_field :name %>
+			  	</div>
+			  	<div class="field">
+			   		<%= f.label "Event Date" %><br>
+			    	<%= f.datetime_select :date %>
+			  	</div>
+			  	<div class="field">
+			    	<%= f.label "Description" %><br>
+			    	<%= f.text_field :description %>
+			  	</div> 
+			  	<div class="field">
+			    	<%= f.label "Location" %><br>
+			    	<%= f.text_field :location %>
+			  	</div>
+			  	<div class="field">
+			  		<%= f.label "Make Gallery Public"%><br>
+			    	<%= f.check_box(:is_public, {}, true) %><br>
+			  	</div>
+			   		<%= f.hidden_field :user_id, value: current_user.id %>
+      		</div>
+      <div class="modal-footer">
+      	<div class="actions">
+          <%= f.submit @button_face, class: "btn btn-dark" %>
+        </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

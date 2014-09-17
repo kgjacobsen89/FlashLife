@@ -1,9 +1,11 @@
 FlashLife::Application.routes.draw do
-  resources :users do
-    resources :events do
-      resources :uploads
-    end
-  end
+  resources :users
+  resources :events
+  resources :uploads
+
+  resource :session, only:[:new, :create, :destroy]
+
+  # resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

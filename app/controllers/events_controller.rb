@@ -1,10 +1,7 @@
 class EventsController < ApplicationController
-  
-  respond_to :json
 
   def index
     @events = Event.all
-    respond_with @events, each_serializer: EventSerializer 
   end
 
   def show
@@ -19,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to events_path
+      redirect_to user_path(@user.id)
     else
       flash[:notice] = "Unprocessable Entity"
       render "new"
@@ -33,7 +30,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(event_params)
-      redirect_to events_path
+      redirect_to user_path(@user.id)
     else
     flash[:notice] = "Unprocessable Entity"
     render 'edit'
@@ -42,8 +39,7 @@ class EventsController < ApplicationController
 
   def destroy
     Event.find(params[:id]).destroy
-    redirect_to events_path
-    end
+    redirect_to user_path(@user.id)
   end
 
   private
