@@ -11,4 +11,10 @@ private
 
   	helper_method :current_user
 
+  	def current_event
+  		@current_event = Event.find(@user.event_id)
+  	end
+
+  	helper_method :current_event 
+
 end
