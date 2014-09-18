@@ -57,7 +57,6 @@ class UploadsController < ApplicationController
       @upload = Upload.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def upload_params
       params[:upload].permit(:uploaded_file, :event_id)
     end
