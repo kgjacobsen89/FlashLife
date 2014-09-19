@@ -1,26 +1,30 @@
-<%= form_for @user.event do |f| %>
-
+<%= form_for @ event do |f| %>
   <div class="field">
-    <%= f.label "Name" %><br>
+    <%= f.label "Event Name" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label "Event Date" %><br>
-    <%= f.datetime_select :date %>
+    <%= f.date_select :date %>
   </div>
-  <div class="field">
-    <%= f.label "Description" %><br>
-    <%= f.text_field :description %>
-  </div> 
   <div class="field">
     <%= f.label "Location" %><br>
     <%= f.text_field :location %>
   </div>
   <div class="field">
-    <%= f.check_box "Make Gallery Public", :is_public, checked = true %><br>
+    <%= f.label "Package Type" %>
+    <%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
   </div>
-   <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="field">
+    <%= f.label "Add To Gallery" %>
+    <%= f.file_field :avatar, :multiple => true %>
+  </div>
+  <div class="field">
+    <%= f.label "Make Gallery Public"%><br>
+    <%= f.check_box(:is_public, {}, true) %><br>
+  </div>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+   <%= f.submit @button_face, class: "btn btn-dark" %>
   </div>
 <% end %>

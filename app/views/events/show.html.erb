@@ -1,29 +1,16 @@
 <h1><%= @event.name %></h1>
 <h2><%= @event.date %></h1>
 
-<button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalUploads">Add Gallery</button>
-<!-- Modal -->
-<div class="modal fade" id="myModalUploads" tabindex="-1" role="dialog" aria-labelledby="myModalLabelUploads" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabelUploads">GALLERY</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for(@upload, { :action => "create", :method => "post"}) do |f| %>
-        	<div class="actions">
-        	 	<%= f.label :uploaded_file, t('.upload_new_file') %>
-    				<%= f.file_field :uploaded_file, multiple: true, name: 'upload[uploaded_file]' %>
-    				<%= f.hidden_field :event_id, value: @event.id %>
-    			</div>
-			</div>
-      <div class="modal-footer">
-      		<%= f.submit @button_face, class: "btn btn-dark" %>
-				<% end %>
-      	<% # jquery upload template # %>
-          <script id="template-upload" type="text/x-tmpl"><div class="upload">{%=o.name%}<div class="progress"><div class="progress-bar bar" style="width: 0%"></div></div></div></script>
-      </div>
-    </div>
-  </div>
-</div>
+<h3>Gallery</h3>
+<ul>
+<% unless @event.avatar.nil? %>
+  <% @event.avatar.each do |a| %>
+  <li>
+    <%= image_tag event.a.url %>
+  </li>
+    <% end %>
+<% end %>
+</ul>
+
+<%= link_to 'Back', user_path(@user) %>
+<%= link_to 'Edit', edit_event_path(@event) %>

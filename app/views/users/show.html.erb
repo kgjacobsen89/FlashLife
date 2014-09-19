@@ -34,45 +34,4 @@
 <% else %>
 <% end %>
 
-<button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalEvent">New Event</button>
-<!-- Modal -->
-<div class="modal fade" id="myModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEvent" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabelEvent">NEW EVENT</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for(@event, { :class => "form-inline", :action => "create", :method => "post"}) do |f| %>
-        	<div class="field">
-			    	<%= f.label "Name" %><br>
-			    	<%= f.text_field :name %>
-			  	</div>
-			  	<div class="field">
-			   		<%= f.label "Event Date" %><br>
-			    	<%= f.date_select :date %>
-			  	</div>
-			  	<div class="field">
-			  		<%= f.label "Package Type" %>
-			  		<%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
-			  	<div class="field">
-			    	<%= f.label "Location" %><br>
-			    	<%= f.text_field :location %>
-			  	</div>
-			  	<div class="field">
-			  		<%= f.label "Make Gallery Public"%><br>
-			    	<%= f.check_box(:is_public, {}, true) %><br>
-			  	</div>
-			   		<%= f.hidden_field :user_id, value: current_user.id %>
-      		</div>
-      <div class="modal-footer">
-      	<div class="actions">
-          <%= f.submit @button_face, class: "btn btn-dark" %>
-        </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= link_to "Create New Event", new_event_path %>

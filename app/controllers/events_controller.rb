@@ -5,22 +5,22 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
     @event = Event.find(params[:id])
-    @upload = Upload.new
   end
 
   def new
-    @event = Event.new
     @user = User.find(session[:user_id])
+    @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
+    
     if @event.save
-      redirect_to user_path(current_user.id)
+      redirect_to @event, notice: 'Event was sucessfully created.'
     else
-      flash[:notice] = "Unprocessable Entity"
-      render "new"
+      render action: 'new'
     end
   end
 
@@ -30,22 +30,23 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+
     if @event.update_attributes(event_params)
-      redirect_to user_path(current_user.id)
+      redirect_to @event, notice: 'Event was sucessfully updated.' 
     else
-    flash[:notice] = "Unprocessable Entity"
-    render 'edit'
+      render action: 'edit' }
     end
   end
 
   def destroy
-    Event.find(params[:id]).destroy
-    redirect_to user_path(current_user.id)
+    @event = Event.find(params[:id])
+    @event.destroy 
+    redirect_to user_path(@user.id)
   end
 
   private
 
-    def event_params
-      params.require(:event).permit(:name, :date, :is_public, :location, :package_type, :user_id)
-    end
+  def event_params
+    params.require(:event).permit(:name, :date, :is_public, :location, :package_type, :user_id, :avatar)
+  end
 end
