@@ -19,18 +19,4 @@ class PhotosController < ApplicationController
 				Photo.find_or_create_by(small_url: small_url)
 		end
 	end
-
-def feed
-		# Show a feed of pictures
-		if params[:user_id] # For a given user
-			@feed = HTTParty.get("https://api.instagram.com/v1/users/" + URI::escape(params[:user_id]) + "/media/recent?access_token=" +
-			@acc_token)
-		else	# This user's folks they follow
-			@feed = HTTParty.get("https://api.instagram.com/v1/users/self/feed?access_token=" +
-			@acc_token)
-		end
-			@feed["data"].each do |pic|
-				url = pic["images"]["thumbnail"]["url"]
-				Photo.find_or_create_by(url:url)
-			end
-	end
+end
