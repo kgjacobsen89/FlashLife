@@ -38,6 +38,10 @@ body {
     font-weight: 700;
 }
 
+.text-white {
+    color: #ffffff;
+}
+
 /* Custom Button Styles */
 
 .btn-dark {
@@ -279,6 +283,7 @@ hr.small {
 
 .map {
     height: 500px;
+    background-color: #ACC7BF;
 }
 
 @media(max-width:768px) {

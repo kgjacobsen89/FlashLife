@@ -18,6 +18,8 @@
 </head>
 
 <body>
+    <%= @images %> 
+    
 
     <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -59,13 +61,6 @@
                             <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
                             <%= f.submit "Sign In", class: "btn btn-dark" %>
                         <% end %>
-
-
-                        <!-- <form method="post" action="session#create" accept-charset="UTF-8">
-                            <input style="margin-bottom: 15px; margin-left: -20px; width: 220px" type="text" placeholder="Email" id="email" name="email">
-                            <input style="margin-bottom: 15px; width: 220px" type="password" placeholder="Password" id="password" name="password">
-                            <input class="btn btn-dark btn-block" type="submit" id="sign-in" value="Sign In">
-                        </form> -->
                     </div>
                 </li>
             <% end %>
@@ -317,7 +312,7 @@
     <!-- Callout -->
     <aside class="callout">
         <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
+            <h1></h1>
         </div>
     </aside>
 
@@ -388,8 +383,12 @@
     <aside class="call-to-action">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <%= image_tag(@business.rating_img_url_large)%><br>
+                <div class="col-md-4 text-center">
+                    <h1 class="text-white"><%= @business.review_count %> total reviews!</h1>
+                </div>
+                <div class="col-md-4 text-center">
+                    <%= image_tag(@business.rating_img_url_large) %><br>
+                    
                     <!-- Button trigger modal -->
                      <button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalSignup">Book Us Now!</button>
                     <!-- Modal -->
@@ -442,6 +441,9 @@
                         </div>
                       </div>
                     </div>
+                    <div class="col-md-4 text-center">
+                    <h1 class="text-white"><%= @business.rating %> / 5</h1>
+                    </div>
                 </div>
             </div>
         </div>
@@ -449,12 +451,6 @@
 
     <!-- Map -->
     <section id="contact" class="map">
-        <!-- <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe> -->
     </section>
 
     <!-- Footer -->
