@@ -34,22 +34,22 @@
         </ul>
     </nav>
 
-<header class="header1">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header"><%= @event.name.upcase %> GALLERY </h1>
-            </div>
-            <% unless @event.uploads.nil? %>         
-                <% @event.uploads.each do |a| %>
-                    <div class="col-lg-3 col-md-4 col xs thumb">
-                        <%= image_tag(a.uploaded_file(:small), class: "img-responsive") %>
-                    </div>
+    <header class="header1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><%= @event.name.upcase %> GALLERY </h1>
+                </div>
+                <% unless @event.uploads.nil? %>         
+                    <% @event.uploads.each do |a| %>
+                        <div class="col-lg-3 col-md-4 col xs thumb">
+                            <%= image_tag(a.uploaded_file(:small), class: "img-responsive") %>
+                        </div>
+                    <% end %>
                 <% end %>
-            <% end %>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
 
 <script>

@@ -1,25 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Flash Life Photo Booth</title>
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-</head>
-
-<body class="user-background"> 
- 
- <!-- Navigation -->
+<body>
+<!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -31,21 +11,6 @@
                     <a href="#top">FLASH LIFE PHOTO BOOTH</a>
                 <% end %>
             </li>
-           <!--  <li>
-                <a href="#top">HOME</a>
-            </li>
-            <li>
-                <a href="#about">ABOUT</a>
-            </li>
-            <li>
-                <a href="#packages">PACKAGES</a>
-            </li>
-            <li>
-                <a href="#gallery">GALLERY</a>
-            </li>
-            <li>
-                <a href="#contact">CONTACT</a>
-            </li> -->
             <% if current_user %>
                 <li>
                     <%= link_to "SIGN OUT", session_path, method: :delete %>
@@ -64,35 +29,39 @@
             <% end %>
         </ul>
     </nav>
-<h1>Listing Users</h1>
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-        <th>Address</th>
-        <th></th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <% @user.each do |user| %>
-        <tr>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name%></td>
-          <td><%= user.email %></td>
-          <td><%= user.phone_number %></td>
-          <td><%= user.address %></td>
-          <td><%= link_to 'Show', user %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<br>
-</div>
+    <header>
+
+        <h1>CLIENT LIST</h1>
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= user.first_name %></td>
+                      <td><%= user.last_name%></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.phone_number %></td>
+                      <td><%= user.address %></td>
+                      <td><%= link_to 'Show', user %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+    </header>
+
 <script>
 
 // Closes the sidebar menu
@@ -124,6 +93,3 @@ $(function() {
     });
 });
 </script>
-</body>
-
-</html>

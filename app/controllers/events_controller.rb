@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     
     if @event.save
-      redirect_to event_path(@event.id)
+      redirect_to user_path(@user)
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy 
-    redirect_to user_path(@user.id)
+    redirect_to user_path(@user)
   end
 
   private

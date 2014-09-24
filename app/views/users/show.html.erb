@@ -12,21 +12,6 @@
                     <a href="#top">FLASH LIFE PHOTO BOOTH</a>
                 <% end %>
             </li>
-           <!--  <li>
-                <a href="#top">HOME</a>
-            </li>
-            <li>
-                <a href="#about">ABOUT</a>
-            </li>
-            <li>
-                <a href="#packages">PACKAGES</a>
-            </li>
-            <li>
-                <a href="#gallery">GALLERY</a>
-            </li>
-            <li>
-                <a href="#contact">CONTACT</a>
-            </li> -->
             <% if current_user %>
                 <li>
                     <%= link_to "SIGN OUT", session_path, method: :delete %>
@@ -43,10 +28,59 @@
                     </div>
                 </li>
             <% end %>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">EDIT ACCOUNT<strong class="caret"></strong></a>
+                <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                    <%= form_for(@user, { :class => "form-inline", :action => "update", :method => "put"}) do |f| %>
+                            <div class="field">
+                              <%= f.label "First Name" %>
+                              <%= f.text_field :first_name, class: "form-control" %>
+                            </div>
+                            <div class="field">
+                              <%= f.label "Last Name" %>
+                              <%= f.text_field :last_name, class: "form-control" %>
+                            </div>
+                            <div class="field">
+                              <%= f.label "Mailing Address" %><br>
+                              <%= f.text_field :address, class: "form-control" %>
+                            </div>
+                            <div class="field">
+                              <%= f.label "Phone Number" %><br>
+                              <%= f.text_field :phone_number, class: "form-control" %>
+                            </div>
+                            <div class="field">
+                              <%= f.label "Email" %><br>
+                              <%= f.text_field :email, class: "form-control" %>
+                            </div> 
+                            <div class="field">
+                              <%= f.label "Password" %><br>
+                              <%= f.password_field :password, class: "form-control" %>
+                            </div>
+                            <div class="field">
+                              <%= f.label "Confirm Password" %><br>
+                              <%= f.password_field :password_confirmation, class: "form-control" %>
+                            </div>
+                            <div class="actions">
+                              <%= f.submit "Update Account", class: "btn btn-dark" %>
+                    <% end %>
+            </li>
+          <!--   <li>
+                <a href="#about">ABOUT</a>
+            </li>
+            <li>
+                <a href="#packages">PACKAGES</a>
+            </li>
+            <li>
+                <a href="#gallery">GALLERY</a>
+            </li>
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li> -->
+            
         </ul>
     </nav>
 
-    <header class="header">
+    <header class="header1">
 
     <h2> My Events </h2>
         <% if @user.events.count != 0 %>
@@ -81,11 +115,52 @@
     	</div>
         <% else %>
         <% end %>
-    </header>
 
-<%= link_to "Create New Event", new_event_path %><br>
-<%= link_to "Edit My Account", edit_user_path %>
-
+<button class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModalEvent">Book Another Event!</button>
+<!-- Modal -->
+<div class="modal fade" id="myModalEvent" tabindex="-1" role="dialog" aria-labelledby="myModalLabelEvent" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+      <h4 class="modal-title" id="myModalLabelEvent">CREATE EVENT</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for(@event, { :class => "form-inline", :action => "create", :method => "post"}) do |f| %>
+        <div class="field">
+          <%= f.label "Event Name" %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label "Event Date" %><br>
+          <%= f.date_select :date %>
+        </div>
+        <div class="field">
+          <%= f.label "Location" %><br>
+          <%= f.text_field :location %>
+        </div>
+        <div class="field">
+          <%= f.label "Package Type" %>
+          <%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
+        </div>
+        <div class="field">
+          <%= f.label "Make Gallery Public"%><br>
+          <%= f.check_box(:is_public, {}, true) %><br>
+        </div>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div class="modal-footer">
+      <div class="actions">
+          <%= f.submit "Create Event", class: "btn btn-dark" %>
+      </div>
+      <% end %>
+    </div>
+      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+  </div>
+</div>
+</div>
+</div>
+</header>
 <script>
 
 // Closes the sidebar menu
