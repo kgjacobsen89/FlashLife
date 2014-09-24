@@ -1,4 +1,4 @@
-
+<body class="event-background">
 <h1>Listing Events</h1>
 <div class="table-responsive">
   <table class="table table-hover">
@@ -22,11 +22,6 @@
           <td><%= event.date %></td>
           <td><%= event.location %></td>
           <td><%= event.package_type %></td>
-            <% @albums["Albums"].each do |k, v| %>
-                <% if k["Title"] == event.name %>
-                <td><%= k["id"] %></td>
-                <% end %>
-            <% end %>
           <td><%= link_to 'Show', event %></td>
         </tr>
       <% end %>
@@ -34,4 +29,4 @@
   </table>
 <br>
 </div>
-<script>
+</body>
