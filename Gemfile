@@ -21,9 +21,7 @@ gem 'rmagick', '2.13.2'
 
 gem "paperclip", "~> 4.2"
 
-group :assets do 
-	gem "jquery-fileupload-rails"
-end
+gem "jquery-fileupload-rails"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

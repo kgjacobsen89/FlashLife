@@ -43,7 +43,23 @@
                 <% unless @event.uploads.nil? %>         
                     <% @event.uploads.each do |a| %>
                         <div class="col-lg-3 col-md-4 col xs thumb">
-                            <%= image_tag(a.uploaded_file(:small), class: "img-responsive") %>
+                            <a data-toggle="modal" data-target="#myModal">
+                                <%= image_tag(a.uploaded_file(:small), class: "img-responsive") %>
+                            </a>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="center">
+                                                <%= image_tag(a.uploaded_file(:original)) %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     <% end %>
                 <% end %>
