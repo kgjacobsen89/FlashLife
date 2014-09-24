@@ -1,13 +1,5 @@
 FlashLife::Application.configure do
 
-#   config.paperclip_defaults = {
-#   :storage => :s3,
-#   :s3_credentials => {
-#     :bucket => ENV['flashlife'],
-#     :access_key_id => ENV['AKIAITA3YBUYD3HMREEQ'],
-#     :secret_access_key => ENV['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']
-#   }
-# }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -86,6 +78,8 @@ FlashLife::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  config.active_record.dump_schema_after_migration = false
 
    # config/environments/production.rb
   config.paperclip_defaults = {
