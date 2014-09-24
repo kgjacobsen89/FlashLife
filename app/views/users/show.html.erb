@@ -47,10 +47,6 @@
     </nav>
 
     <header class="header">
-        <div class="text-vertical-center">
-            <h1> WELCOME, <%= @user.first_name %> <%= @user.last_name %></h1>
-        </div>
-    </header>
 
     <h2> My Events </h2>
         <% if @user.events.count != 0 %>
@@ -85,6 +81,7 @@
     	</div>
         <% else %>
         <% end %>
+    </header>
 
 <%= link_to "Create New Event", new_event_path %><br>
 <%= link_to "Edit My Account", edit_user_path %>

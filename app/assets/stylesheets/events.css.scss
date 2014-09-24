@@ -2,15 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.event-background {
+.Collage{
 
- 	display: table;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #5E5F67;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
+    /* define how much padding you want in between your images */
+    padding:10px;
+
+    }
+
+.Collage img{
+
+    /* ensures padding at the bottom of the image is correct */
+    vertical-align:bottom;
+
+    /* hide the images until the plugin has run. the plugin will reveal the images*/
+    opacity:0;
+
+    }

@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Flash Life Photo Booth</title>
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-</head>
-
 <body> 
  
  <!-- Navigation -->
@@ -65,19 +46,25 @@
         </ul>
     </nav>
 
-<header>
+<header class="header">
 <h1><%= @event.name %></h1>
 <h2><%= @event.date %></h1>
 
 <h3>Photo Gallery</h3>
 
-<%= link_to 'Add Gallery', new_upload_path %>
+    <% unless @event.uploads.nil? %>
+        <% @event.uploads.each do |a| %>
+            <%= image_tag(a.uploaded_file(:small)) %>
+        <% end %>
+    <% end %><br>
+
+
+
 <%= link_to 'Back', user_path(@user) %>
 <%= link_to 'Edit', edit_event_path(@event) %>
 </header>
 
 <script>
-
 // Closes the sidebar menu
 $("#menu-close").click(function(e) {
     e.preventDefault();
