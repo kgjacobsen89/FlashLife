@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create([{
-	 first_name: 'Khai',
-	 last_name: 'Ly',
-	 email: info@flashlifephotobooth.com
-	 phone_numer:
-	 address:
-	 password_digest:
-	 created_at:
-	 updated_at:
- 	}])
+# User.create([{
+# 	 first_name: 'Khai',
+# 	 last_name: 'Ly',
+# 	 email: info@flashlifephotobooth.com
+# 	 phone_numer:
+# 	 address:
+# 	 password_digest:
+# 	 created_at:
+# 	 updated_at:
+#  	}])
