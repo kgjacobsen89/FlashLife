@@ -6,6 +6,5 @@ FactoryGirl.define do
 		is_public "true"
 		location "The Bungalow, Santa Monica"
 		package_type "Flashy Booth"
-		avatar Rack::Test::UploadedFile.new('spec/fixtures/test.jpg', 'image/jpeg')
 	end
 end
