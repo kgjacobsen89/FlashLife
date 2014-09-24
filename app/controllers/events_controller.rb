@@ -47,6 +47,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :is_public, :location, :package_type, :user_id, :avatar)
+    params.require(:event).permit(:name, :date, :is_public, :location, :package_type, :user_id)
   end
 end

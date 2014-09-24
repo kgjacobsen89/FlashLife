@@ -17,7 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 
-<body class="event-background"> 
+<body> 
  
  <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -65,7 +65,7 @@
         </ul>
     </nav>
 
-<div class = "event-show">
+<header>
 <h1><%= @event.name %></h1>
 <h2><%= @event.date %></h1>
 
@@ -74,7 +74,7 @@
 <%= link_to 'Add Gallery', new_upload_path %>
 <%= link_to 'Back', user_path(@user) %>
 <%= link_to 'Edit', edit_event_path(@event) %>
-</div>
+</header>
 
 <script>
 

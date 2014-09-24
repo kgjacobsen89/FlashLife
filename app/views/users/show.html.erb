@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Flash Life Photo Booth</title>
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-</head>
-
-<body class="user-background"> 
+<body> 
  
  <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
@@ -65,43 +46,47 @@
         </ul>
     </nav>
 
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <header class="header">
+        <div class="text-vertical-center">
+            <h1> WELCOME, <%= @user.first_name %> <%= @user.last_name %></h1>
+        </div>
+    </header>
 
-<h2> My Events </h2>
-<% if @user.events.count != 0 %>
-	<div class="table-responsive">
-		<table class="table">
-		  <thead>
-		    <tr>
-		      <th>Name</th>
-		      <th>Date</th>
-		      <th>Location</th>
-		      <th>Package Type</th>
-		      <th></th>
-		      <th></th>
-		      <th></th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <% @user.events.each do |event| %>
-		      <tr>
-		        <td><%= event.name %></td>
-		        <td><%= event.date %></td>
-		        <td><%= event.location %></td>
-		        <td><%= event.package_type %></td>
-		        <td><%= link_to 'Show', event %></td>
-		        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-		        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		      </tr>
-		    <% end %>
-			</tbody>
-		</table>
-		<br>
-	</div>
-<% else %>
-<% end %>
+    <h2> My Events </h2>
+        <% if @user.events.count != 0 %>
+	   <div class="table-responsive">
+    		<table class="table">
+    		  <thead>
+    		    <tr>
+    		      <th>Event Name</th>
+    		      <th>Date</th>
+    		      <th>Location</th>
+    		      <th>Package Type</th>
+    		      <th></th>
+    		      <th></th>
+    		      <th></th>
+    		    </tr>
+    		  </thead>
+    		  <tbody>
+    		    <% @user.events.each do |event| %>
+    		      <tr>
+    		        <td><%= event.name %></td>
+    		        <td><%= event.date %></td>
+    		        <td><%= event.location %></td>
+    		        <td><%= event.package_type %></td>
+    		        <td><%= link_to 'Show', event %></td>
+    		        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+    		        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    		      </tr>
+    		    <% end %>
+    			</tbody>
+    		</table>
+    		<br>
+    	</div>
+        <% else %>
+        <% end %>
 
-<%= link_to "Create New Event", new_event_path %>
+<%= link_to "Create New Event", new_event_path %><br>
 <%= link_to "Edit My Account", edit_user_path %>
 
 <script>
@@ -135,6 +120,7 @@ $(function() {
     });
 });
 </script>
+
 </body>
 
 </html>
