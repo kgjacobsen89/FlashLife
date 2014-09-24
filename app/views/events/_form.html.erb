@@ -16,10 +16,6 @@
     <%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
   </div>
   <div class="field">
-    <%= f.label "Add To Gallery" %>
-    <%= f.file_field :avatar, :multiple => true %>
-  </div>
-  <div class="field">
     <%= f.label "Make Gallery Public"%><br>
     <%= f.check_box(:is_public, {}, true) %><br>
   </div>

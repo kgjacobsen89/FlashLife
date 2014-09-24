@@ -21,13 +21,9 @@ gem 'rmagick', '2.13.2'
 
 gem "paperclip", "~> 4.2"
 
-gem 'aws-sdk'
-
-gem 'httparty'
-
-gem 'omniauth-smugmug'
-
-# gem "jquery-fileupload-rails"
+group :assets do 
+	gem "jquery-fileupload-rails"
+end
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -62,14 +58,16 @@ gem 'bcrypt', '~> 3.1.7'
 
 #Add Rspec
 gem 'rspec-rails'
+gem 'factory_girl_rails'
 
 #for angularjs to work nicely on rails
 gem 'angularjs-rails'# Make Angular play nice
 gem 'angular-rails-templates' # Make Angular templates available
 gem 'active_model_serializers' # Allows you to customize the JSON output, essential for our API JSON
 
-gem 'factory_girl_rails'
 
+gem 'aws-sdk'
+gem 'therubyracer'
 gem 'rails_12factor', group: :production
 
 # Use Capistrano for deployment

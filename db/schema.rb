@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922213557) do
+ActiveRecord::Schema.define(version: 20140924020047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,23 +25,21 @@ ActiveRecord::Schema.define(version: 20140922213557) do
     t.string   "location"
     t.integer  "user_id"
     t.string   "package_type"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
-  create_table "photos", force: true do |t|
+  create_table "uploads", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "uploaded_file_file_name"
+    t.string   "uploaded_file_content_type"
+    t.integer  "uploaded_file_file_size"
+    t.datetime "uploaded_file_updated_at"
     t.integer  "event_id"
-    t.string   "small_url"
-    t.string   "original_url"
   end
 
-  add_index "photos", ["event_id"], name: "index_photos_on_event_id", using: :btree
+  add_index "uploads", ["event_id"], name: "index_uploads_on_event_id", using: :btree
 
   create_table "users", force: true do |t|
     t.datetime "created_at"

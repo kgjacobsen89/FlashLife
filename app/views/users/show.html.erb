@@ -1,4 +1,70 @@
-<div class= "user-show">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Flash Life Photo Booth</title>
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body class="user-show"> 
+ 
+ <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <% if current_user %>
+                    <%= link_to "WELCOME" + " #{current_user.first_name.upcase}", user_path(current_user) %>
+                <% else %>
+                    <a href="#top">FLASH LIFE PHOTO BOOTH</a>
+                <% end %>
+            </li>
+           <!--  <li>
+                <a href="#top">HOME</a>
+            </li>
+            <li>
+                <a href="#about">ABOUT</a>
+            </li>
+            <li>
+                <a href="#packages">PACKAGES</a>
+            </li>
+            <li>
+                <a href="#gallery">GALLERY</a>
+            </li>
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li> -->
+            <% if current_user %>
+                <li>
+                    <%= link_to "SIGN OUT", session_path, method: :delete %>
+                </li>
+            <% else %>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" href="#" data-toggle="dropdown">SIGN IN <strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                        <%= form_for(@user, {url: session_path}) do |f| %>
+                            <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+                            <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+                            <%= f.submit "Sign In", class: "btn btn-dark" %>
+                        <% end %>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </nav>
+
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
 <h2> My Events </h2>
@@ -36,4 +102,39 @@
 <% end %>
 
 <%= link_to "Create New Event", new_event_path %>
-</div>
+<%= link_to "Edit My Account", edit_user_path %>
+
+<script>
+
+// Closes the sidebar menu
+$("#menu-close").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Opens the sidebar menu
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#sidebar-wrapper").toggleClass("active");
+});
+
+// Scrolls to the selected menu item on the page
+$(function() {
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
+        }
+    });
+});
+</script>
+</body>
+
+</html>
