@@ -38,7 +38,7 @@
 	100% {background-image: url("Photobooth10.png");}
 }
 
-.bride_groom{
+.bride_groom {
 	width: 230px;
 	height: 300px;
 	background-repeat: no-repeat;
@@ -50,26 +50,26 @@
     animation-iteration-count:infinite;
 }
 @keyframes blink {
-	0% {background-image: url("bride_groom.png");}
-	10% {background-image: url("bride_groom_closed.png");}
-	11% {background-image: url("bride_groom.png");}
-	49% {background-image: url("bride_groom.png");}
-	50% {background-image: url("bride_groom_closed.png");}
-	51% {background-image: url("bride_groom.png");}
-	79% {background-image: url("bride_groom.png");}
-	80% {background-image: url("bride_groom_closed.png");}
-	81% {background-image: url("bride_groom.png");}
-	100% {background-image: url("bride_groom.png");}
+	0% {background-image: url("bride_groom1.png");}
+	10% {background-image: url("bride_groom2.png");}
+	11% {background-image: url("bride_groom1.png");}
+	49% {background-image: url("bride_groom1.png");}
+	50% {background-image: url("bride_groom2.png");}
+	51% {background-image: url("bride_groom1.png");}
+	79% {background-image: url("bride_groom1.png");}
+	80% {background-image: url("bride_groom2.png");}
+	81% {background-image: url("bride_groom1.png");}
+	100% {background-image: url("bride_groom1.png");}
 }
 @-webkit-keyframes blink{
-	0% {background-image: url("bride_groom.png");}
-	10% {background-image: url("bride_groom_closed.png");}
-	11% {background-image: url("bride_groom.png");}
-	49% {background-image: url("bride_groom.png");}
-	50% {background-image: url("bride_groom_closed.png");}
-	51% {background-image: url("bride_groom.png");}
-	79% {background-image: url("bride_groom.png");}
-	80% {background-image: url("bride_groom_closed.png");}
-	81% {background-image: url("bride_groom.png");}
-	100% {background-image: url("bride_groom.png");}
+	0% {background-image: url("bride_groom1.png");}
+	10% {background-image: url("bride_groom2.png");}
+	11% {background-image: url("bride_groom1.png");}
+	49% {background-image: url("bride_groom1.png");}
+	50% {background-image: url("bride_groom2.png");}
+	51% {background-image: url("bride_groom1.png");}
+	79% {background-image: url("bride_groom1.png");}
+	80% {background-image: url("bride_groom2.png");}
+	81% {background-image: url("bride_groom1.png");}
+	100% {background-image: url("bride_groom1.png");}
 }
