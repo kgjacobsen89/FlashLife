@@ -15,10 +15,11 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = User.find(session[:user_id])
     @event = Event.new(event_params)
     
     if @event.save
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user)
     else
       render 'new'
     end
