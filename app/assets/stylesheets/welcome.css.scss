@@ -70,6 +70,12 @@ body {
     background-color: rgba(255,255,255,0.8);
 }
 
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+}
+
 /* Custom Horizontal Rule */
 
 hr.small {
@@ -271,17 +277,21 @@ hr.small {
     margin: 10px;
 }
 
-/* Map */
+/* Green */
 
-.map {
+.green {
     height: 500px;
     background-color: #ACC7BF;
 }
 
-@media(max-width:768px) {
-    .map {
-        height: 75%;
-    }
+.photobooth3D {
+    background-image: url("Photobooth_open_smaller.png");
+    width: 592px;
+    height: 475px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
+
 }
 
 /* Footer */

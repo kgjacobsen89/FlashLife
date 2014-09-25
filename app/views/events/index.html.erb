@@ -30,38 +30,45 @@
         </ul>
     </nav>
 
-<header class="header1">
+<header class="header">
+  <div class="container-fluid"> 
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-10 col-xs-offset-1">
 
-  <h1>Listing Events</h1>
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>User Id</th>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Location</th>
-          <th>Package Type</th>
-          <th>Album ID</th>
-          <th></th>
-        </tr>
-      </thead>
+        <h2>ALL EVENTS</h2>
+        <div class="table-responsive table-condensed">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>User Id</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Package Type</th>
+                <th>Album ID</th>
+                <th></th>
+              </tr>
+            </thead>
 
-      <tbody>
-        <% @events.each do |event| %>
-          <tr>
-            <td><%= event.user_id %></td>
-            <td><%= event.name %></td>
-            <td><%= event.date %></td>
-            <td><%= event.location %></td>
-            <td><%= event.package_type %></td>
-            <td><%= link_to 'Show', event %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  <br>
+            <tbody>
+              <% @events.each do |event| %>
+                <tr>
+                  <td><%= event.user_id %></td>
+                  <td><%= event.name %></td>
+                  <td><%= event.date %></td>
+                  <td><%= event.location %></td>
+                  <td><%= event.package_type %></td>
+                  <td><%= link_to 'Show', event %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <br>
+        </div>
+      </div>
+    </div>
   </div>
+
 </header>
 <script>
 // Closes the sidebar menu

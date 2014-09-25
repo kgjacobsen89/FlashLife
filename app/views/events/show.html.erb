@@ -12,8 +12,38 @@
                     <a href="#top">FLASH LIFE PHOTO BOOTH</a>
                 <% end %>
             </li>
-            <li>
-                <%= link_to 'EDIT EVENT', edit_event_path(@event) %>
+            <li class"dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">EDIT EVENT<strong class="caret"></strong></a>
+                <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                    <%= form_for(@event, { :class => "form-inline", :action => "update", :method => "put"}) do |f| %>
+                      <div class="field">
+                        <%= f.label "Event Name" %><br>
+                        <%= f.text_field :name %>
+                      </div>
+                      <div class="field">
+                        <%= f.label "Event Date" %><br>
+                        <%= f.date_select :date %>
+                      </div>
+                      <div class="field">
+                        <%= f.label "Location" %><br>
+                        <%= f.text_field :location %>
+                      </div>
+                      <div class="field">
+                        <%= f.label "Package Type" %>
+                        <%= f.select :package_type, options_for_select(["Flashy Booth", "Action Booth", "Red Carpet Event", "A-List Red Carpet"]), :selected => params[:package_type] %><br />
+                      </div>
+                      <div class="field">
+                        <%= f.label "Make Gallery Public"%><br>
+                        <%= f.check_box(:is_public, {}, true) %><br>
+                      </div>
+                      <div>
+                        <%= f.hidden_field :user_id, value: current_user.id %>
+                      </div>
+                      <div class="actions">
+                       <%= f.submit "Update Event", class: "btn btn-dark" %>
+                        </div>
+                    <% end %>
+                </div>
             </li>
             <% if current_user %>
                 <li>
@@ -34,7 +64,7 @@
         </ul>
     </nav>
 
-    <header class="header1">
+    <header class="header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
